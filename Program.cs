@@ -9,7 +9,7 @@ using System.IO;
 
 Student[] Students = new Student[100];
 Sort Sort;
-string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data", "Names.txt");
+string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data", "StudentsData.txt");
 string[] StudentsData = System.IO.File.ReadAllLines(path);
 
 void GenerateStudent()
@@ -17,17 +17,20 @@ void GenerateStudent()
     for (int i = 0; i < Students.Length; i++)
     {
         string[] Values = StudentsData[i].Replace(" ", "").Split(new char[] { ',' });
+        
         Student Student = new Student(Values[0],
-                              Int32.Parse(Values[1]),
-                              Int32.Parse(Values[2]),
-                              Int32.Parse(Values[3]),
-                              Int32.Parse(Values[4]),
-                              Int32.Parse(Values[5]),
-                              Int32.Parse(Values[6]),
-                              Int32.Parse(Values[7]),
-                              Int32.Parse(Values[8]),
-                              Int32.Parse(Values[9]),
-                              Int32.Parse(Values[10]));
+                                      Values[1],
+                                      Int32.Parse(Values[2]),
+                                      Int32.Parse(Values[3]),
+                                      Int32.Parse(Values[4]),
+                                      Int32.Parse(Values[5]),
+                                      Int32.Parse(Values[6]),
+                                      Int32.Parse(Values[7]),
+                                      Int32.Parse(Values[8]),
+                                      Int32.Parse(Values[9]),
+                                      Int32.Parse(Values[10]),
+                                      Int32.Parse(Values[11]));
+
 
         Students[i] = Student;
 
@@ -117,19 +120,19 @@ void PrintAverage(string Type)
         switch (Type)
         {
             case "WrittenAverage":
-                Console.WriteLine($"{Students[i].Name} : {Students[i].AverageWritten()}");
+                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageWritten()}");
                 break;
             case "PracticalAverage":
-                Console.WriteLine($"{Students[i].Name} : {Students[i].AveragePractical()}");
+                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AveragePractical()}");
                 break;
             case "TheoricalAverage":
-                Console.WriteLine($"{Students[i].Name} : {Students[i].AverageTheorical()}");
+                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageTheorical()}");
                 break;
             case "MainAverage":
-                Console.WriteLine($"{Students[i].Name} : {Students[i].AverageMain()}");
+                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageMain()}");
                 break;
             case "GeneralAverage":
-                Console.WriteLine($"{Students[i].Name} : {Students[i].AverageGeneral()}");
+                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageGeneral()}");
                 break;
         }
     }

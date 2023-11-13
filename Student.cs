@@ -2,7 +2,8 @@
 {
     public class Student
     {
-        public Student(string Name,
+        public Student(string FirstName,
+                       string LastName,
                        int AdvancedProgramming,
                        int AdvancedProgramming2,
                        int Mathematic,
@@ -15,7 +16,8 @@
                        int Algorithm)
         {
 
-            this.Name = Name;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
             this.AdvancedProgramming = AdvancedProgramming;
             this.AdvancedProgramming2 = AdvancedProgramming2;
             this.Mathematic = Mathematic;
@@ -28,7 +30,8 @@
             this.WorkShop = WorkShop;
         }
 
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public int AdvancedProgramming { get; set; }
         public int AdvancedProgramming2 { get; set; }
         public int Mathematic { get; set; }
@@ -40,6 +43,11 @@
         public int OS { get; set; }
         public int Algorithm { get; set; }
 
+        public string FullName()
+        {
+            return $"{FirstName} {LastName}";
+        }
+            
         public double AverageWritten()
         {
             int TotalMarks = Quran +
@@ -133,7 +141,7 @@
             int[] Lessons = { AdvancedProgramming, AdvancedProgramming2, Mathematic, Quran, WorkShop, English, OOP, PE, OS, Algorithm };
             string[] LessonsName = { "AdvancedProgramming", "AdvancedProgramming2", "Mathematic", "Quran", "WorkShop", "English", "OOP", "PE", "OS", "Algorithm" };
             bool Prime = true;
-            Console.WriteLine($"********{Name}********");
+            Console.WriteLine($"********{FullName()}********");
             for (int i = 0; i < Lessons.Length; i++)
             {
                 if (Lessons[i] <= 1)

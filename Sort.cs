@@ -21,7 +21,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -35,18 +35,18 @@ namespace StudentsReportCard_OOPAndFilling_2
                             if (Students[j].AverageWritten() > Average)
                             {
                                 Average = Students[j].AverageWritten();
-                                Name = Students[j].Name;
+                                Name = Students[j].FullName();
                                 Student = Students[j];
                             }
                         }
-                        Console.WriteLine($"{i + 1}.Name:{Name.Replace(" ", "")},  Average: {Average}");
+                        Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
                         for (int x = Index + 1; x < Students.Length; x++)
                         {
                             Students[x - 1] = Students[x];
 
                         }
-                        Students[Students.Length - 1] = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                         Average = 0;
                     }
@@ -64,7 +64,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -78,18 +78,18 @@ namespace StudentsReportCard_OOPAndFilling_2
                             if (Students[j].AveragePractical() > Average)
                             {
                                 Average = Students[j].AveragePractical();
-                                Name = Students[j].Name;
+                                Name = Students[j].FullName();
                                 Student = Students[j];
                             }
                         }
-                        Console.WriteLine($"{i + 1}.Name:{Name.Replace(" ", "")},  Average: {Average}");
+                        Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
                         for (int x = Index + 1; x < Students.Length; x++)
                         {
                             Students[x - 1] = Students[x];
 
                         }
-                        Students[Students.Length - 1] = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                         Average = 0;
                     }
@@ -107,7 +107,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -121,18 +121,18 @@ namespace StudentsReportCard_OOPAndFilling_2
                             if (Students[j].AverageTheorical() > Average)
                             {
                                 Average = Students[j].AverageTheorical();
-                                Name = Students[j].Name;
+                                Name = Students[j].FullName();
                                 Student = Students[j];
                             }
                         }
-                        Console.WriteLine($"{i + 1}.Name:{Name.Replace(" ", "")},  Average: {Average}");
+                        Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
                         for (int x = Index + 1; x < Students.Length; x++)
                         {
                             Students[x - 1] = Students[x];
 
                         }
-                        Students[Students.Length - 1] = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                         Average = 0;
                     }
@@ -150,7 +150,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -164,18 +164,18 @@ namespace StudentsReportCard_OOPAndFilling_2
                             if (Students[j].AverageMain() > Average)
                             {
                                 Average = Students[j].AverageMain();
-                                Name = Students[j].Name;
+                                Name = Students[j].FullName();
                                 Student = Students[j];
                             }
                         }
-                        Console.WriteLine($"{i + 1}.Name:{Name.Replace(" ", "")},  Average: {Average}");
+                        Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
                         for (int x = Index + 1; x < Students.Length; x++)
                         {
                             Students[x - 1] = Students[x];
 
                         }
-                        Students[Students.Length - 1] = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                         Average = 0;
                     }
@@ -192,7 +192,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             double Average = 0;
             string Name = "";
             char Grade = ' ';
-            Student Student = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
 
@@ -210,19 +210,19 @@ namespace StudentsReportCard_OOPAndFilling_2
                             if (Students[j].AverageGeneral() > Average)
                             {
                                 Average = Students[j].AverageGeneral();
-                                Name = Students[j].Name;
+                                Name = Students[j].FullName();
                                 Grade = Students[j].Rank(Students[j].AverageGeneral());
                                 Student = Students[j];
                             }
                         }
-                        Console.WriteLine($"{i + 1}.Name:{Name.Replace(" ", "")},  Average: {Average},  Grade: {Grade}");
+                        Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average},  Grade: {Grade}");
                         int Index = Array.IndexOf(Students, Student);
                         for (int x = Index + 1; x < Students.Length; x++)
                         {
                             Students[x - 1] = Students[x];
 
                         }
-                        Students[Students.Length - 1] = new Student("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                         Average = 0;
                     }
