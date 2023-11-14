@@ -74,7 +74,7 @@
                              (Algorithm * 3);
                              
                                                           
-            return Math.Round((double)TotalMarks / (double)7, 2);
+            return Math.Round((double)TotalMarks / (double)6, 2);
         }
 
         public double AverageMain()
