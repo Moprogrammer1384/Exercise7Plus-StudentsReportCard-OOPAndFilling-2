@@ -7,34 +7,36 @@
 using StudentsReportCard_OOPAndFilling_2;
 using System.IO;
 
-Student[] Students = new Student[100];
+Student[] Students;
 Sort Sort;
 string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data", "StudentsData.txt");
-string[] StudentsData = System.IO.File.ReadAllLines(path);
+
 
 void GenerateStudent()
 {
-    for (int i = 0; i < Students.Length; i++)
+    using (StreamReader Reader = new StreamReader(path))
     {
-        string[] Values = StudentsData[i].Replace(" ", "").Split(new char[] { ',' });
-        
-        Student Student = new Student(Values[0],
-                                      Values[1],
-                                      Int32.Parse(Values[2]),
-                                      Int32.Parse(Values[3]),
-                                      Int32.Parse(Values[4]),
-                                      Int32.Parse(Values[5]),
-                                      Int32.Parse(Values[6]),
-                                      Int32.Parse(Values[7]),
-                                      Int32.Parse(Values[8]),
-                                      Int32.Parse(Values[9]),
-                                      Int32.Parse(Values[10]),
-                                      Int32.Parse(Values[11]));
+        for (int i = 0; i < Students.Length; i++)
+        {
+            string[] Values = Reader.ReadLine().Replace(" ", "").Split(new char[] { ',' });
 
+            Student Student = new Student(Values[0],
+                                          Values[1],
+                                          Int32.Parse(Values[2]),
+                                          Int32.Parse(Values[3]),
+                                          Int32.Parse(Values[4]),
+                                          Int32.Parse(Values[5]),
+                                          Int32.Parse(Values[6]),
+                                          Int32.Parse(Values[7]),
+                                          Int32.Parse(Values[8]),
+                                          Int32.Parse(Values[9]),
+                                          Int32.Parse(Values[10]),
+                                          Int32.Parse(Values[11]));
+            Students[i] = Student;
 
-        Students[i] = Student;
-
+        }
     }
+        
 }
 
 void Welcome()
@@ -64,6 +66,7 @@ void SelectOption()
     {
         Welcome();
         Console.Write("Please choose one of the options: ");
+        Students = new Student[100];
         GenerateStudent();
         Sort = new Sort(Students);
         switch (Console.ReadLine())

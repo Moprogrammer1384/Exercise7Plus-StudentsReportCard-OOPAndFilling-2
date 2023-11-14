@@ -40,14 +40,8 @@ namespace StudentsReportCard_OOPAndFilling_2
                             }
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        int Index = Array.IndexOf(Students, Student);
-                        for (int x = Index + 1; x < Students.Length; x++)
-                        {
-                            Students[x - 1] = Students[x];
-
-                        }
-                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
+                        int Index = Array.IndexOf(Students, Student);                       
+                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);                        
                         Average = 0;
                     }
                 }
@@ -84,13 +78,7 @@ namespace StudentsReportCard_OOPAndFilling_2
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
-                        for (int x = Index + 1; x < Students.Length; x++)
-                        {
-                            Students[x - 1] = Students[x];
-
-                        }
-                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
+                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                         Average = 0;
                     }
                 }
@@ -124,16 +112,13 @@ namespace StudentsReportCard_OOPAndFilling_2
                                 Name = Students[j].FullName();
                                 Student = Students[j];
                             }
+                            
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
-                        for (int x = Index + 1; x < Students.Length; x++)
-                        {
-                            Students[x - 1] = Students[x];
-
-                        }
-                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
+                        if (Index == -1)
+                            Index = 0;
+                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);                        
                         Average = 0;
                     }
                 }
@@ -170,13 +155,8 @@ namespace StudentsReportCard_OOPAndFilling_2
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
                         int Index = Array.IndexOf(Students, Student);
-                        for (int x = Index + 1; x < Students.Length; x++)
-                        {
-                            Students[x - 1] = Students[x];
-
-                        }
-                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
+                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                       
                         Average = 0;
                     }
                 }
@@ -217,12 +197,13 @@ namespace StudentsReportCard_OOPAndFilling_2
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average},  Grade: {Grade}");
                         int Index = Array.IndexOf(Students, Student);
-                        for (int x = Index + 1; x < Students.Length; x++)
-                        {
-                            Students[x - 1] = Students[x];
+                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        //for (int x = Index + 1; x < Students.Length; x++)
+                        //{
+                        //    Students[x - 1] = Students[x];
 
-                        }
-                        Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        //}
+                        //Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                         Average = 0;
                     }
