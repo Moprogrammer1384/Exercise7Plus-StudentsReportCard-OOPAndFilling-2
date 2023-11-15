@@ -89,7 +89,7 @@ namespace StudentsReportCard_OOPAndFilling_2
                 Console.WriteLine("Please enter a correct number!!!");
         }
 
-        public void SortByTheorical()
+       public void SortByTheorical()
         {
             double Average = 0;
             string Name = "";
@@ -104,22 +104,36 @@ namespace StudentsReportCard_OOPAndFilling_2
                 {
                     for (int i = 0; i < Number; i++)
                     {
-                        for (int j = 0; j < Students.Length; j++)
+                        if(i == 99)
                         {
-                            if (Students[j].AverageTheorical() > Average)
+                            foreach (Student student in Students)
                             {
-                                Average = Students[j].AverageTheorical();
-                                Name = Students[j].FullName();
-                                Student = Students[j];
+                                if(student.FirstName != "")
+                                {
+                                    Student = student;
+                                    break;
+                                }
                             }
-                            
+                            Console.WriteLine($"{i + 1}.Name:{Student.FullName()},  Average: {Student.AverageTheorical()}");
                         }
-                        Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        int Index = Array.IndexOf(Students, Student);
-                        if (Index == -1)
-                            Index = 0;
-                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);                        
-                        Average = 0;
+                        else
+                        {
+                            for (int j = 0; j < Students.Length; j++)
+                            {
+                                if (Students[j].AverageTheorical() >= Average && Students[j].FullName() != Name)
+                                {
+                                    Average = Students[j].AverageTheorical();
+                                    Name = Students[j].FullName();
+                                    Student = Students[j];
+                                }
+
+                            }
+                            Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
+                            int Index = Array.IndexOf(Students, Student);                            
+                            Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                            Average = 0;
+                        }
+                        
                     }
                 }
                 else
