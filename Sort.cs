@@ -120,7 +120,7 @@ namespace StudentsReportCard_OOPAndFilling_2
                         {
                             for (int j = 0; j < Students.Length; j++)
                             {
-                                if (Students[j].AverageTheorical() >= Average && Students[j].FullName() != Name)
+                                if (Students[j].AverageTheorical() > Average)
                                 {
                                     Average = Students[j].AverageTheorical();
                                     Name = Students[j].FullName();
