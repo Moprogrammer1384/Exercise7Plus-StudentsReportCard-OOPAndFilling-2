@@ -198,13 +198,6 @@ namespace StudentsReportCard_OOPAndFilling_2
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average},  Grade: {Grade}");
                         int Index = Array.IndexOf(Students, Student);
                         Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-                        //for (int x = Index + 1; x < Students.Length; x++)
-                        //{
-                        //    Students[x - 1] = Students[x];
-
-                        //}
-                        //Students[Students.Length - 1] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
                         Average = 0;
                     }
                 }
