@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +8,9 @@ namespace StudentsReportCard_OOPAndFilling_2
 {
     public class Sort
     {
-        private Student[] Students;
+        private List<Student> Students;
 
-        public Sort(Student[] Students)
+        public Sort(List<Student> Students)
         {
             this.Students = Students;
         }
@@ -26,22 +26,21 @@ namespace StudentsReportCard_OOPAndFilling_2
             if (IsNotNull(Input) && IsInt(Input))
             {
                 int Number = Convert.ToInt32(Input);
-                if (Number <= Students.Length)
+                if (Number <= Students.Count)
                 {
                     for (int i = 0; i < Number; i++)
                     {
-                        for (int j = 0; j < Students.Length; j++)
+                        foreach (Student student in Students)
                         {
-                            if (Students[j].AverageWritten() > Average)
+                            if (student.AverageWritten() > Average)
                             {
-                                Average = Students[j].AverageWritten();
-                                Name = Students[j].FullName();
-                                Student = Students[j];
+                                Average = student.AverageWritten();
+                                Name = student.FullName();
+                                Student = student;
                             }
-                        }
+                        }                      
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        int Index = Array.IndexOf(Students, Student);                       
-                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);                        
+                        Students.Remove(Student);                                              
                         Average = 0;
                     }
                 }
@@ -63,22 +62,21 @@ namespace StudentsReportCard_OOPAndFilling_2
             if (IsNotNull(Input) && IsInt(Input))
             {
                 int Number = Convert.ToInt32(Input);
-                if (Number <= Students.Length)
+                if (Number <= Students.Count)
                 {
                     for (int i = 0; i < Number; i++)
                     {
-                        for (int j = 0; j < Students.Length; j++)
+                        foreach (Student student in Students)
                         {
-                            if (Students[j].AveragePractical() > Average)
+                            if (student.AveragePractical() > Average)
                             {
-                                Average = Students[j].AveragePractical();
-                                Name = Students[j].FullName();
-                                Student = Students[j];
+                                Average = student.AveragePractical();
+                                Name = student.FullName();
+                                Student = student;
                             }
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        int Index = Array.IndexOf(Students, Student);
-                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students.Remove(Student);
                         Average = 0;
                     }
                 }
@@ -89,7 +87,7 @@ namespace StudentsReportCard_OOPAndFilling_2
                 Console.WriteLine("Please enter a correct number!!!");
         }
 
-       public void SortByTheorical()
+        public void SortByTheorical()
         {
             double Average = 0;
             string Name = "";
@@ -100,15 +98,15 @@ namespace StudentsReportCard_OOPAndFilling_2
             if (IsNotNull(Input) && IsInt(Input))
             {
                 int Number = Convert.ToInt32(Input);
-                if (Number <= Students.Length)
+                if (Number <= Students.Count)
                 {
                     for (int i = 0; i < Number; i++)
                     {
-                        if(i == 99)
+                        if (i == 99)
                         {
                             foreach (Student student in Students)
                             {
-                                if(student.FirstName != "")
+                                if (student.FirstName != "")
                                 {
                                     Student = student;
                                     break;
@@ -118,22 +116,20 @@ namespace StudentsReportCard_OOPAndFilling_2
                         }
                         else
                         {
-                            for (int j = 0; j < Students.Length; j++)
+                            foreach (Student student in Students)
                             {
-                                if (Students[j].AverageTheorical() > Average)
+                                if (student.AverageTheorical() > Average)
                                 {
-                                    Average = Students[j].AverageTheorical();
-                                    Name = Students[j].FullName();
-                                    Student = Students[j];
+                                    Average = student.AverageTheorical();
+                                    Name = student.FullName();
+                                    Student = student;
                                 }
-
                             }
                             Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                            int Index = Array.IndexOf(Students, Student);                            
-                            Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                            Students.Remove(Student);
                             Average = 0;
                         }
-                        
+
                     }
                 }
                 else
@@ -154,23 +150,21 @@ namespace StudentsReportCard_OOPAndFilling_2
             if (IsNotNull(Input) && IsInt(Input))
             {
                 int Number = Convert.ToInt32(Input);
-                if (Number <= Students.Length)
+                if (Number <= Students.Count)
                 {
                     for (int i = 0; i < Number; i++)
                     {
-                        for (int j = 0; j < Students.Length; j++)
+                        foreach (Student student in Students)
                         {
-                            if (Students[j].AverageMain() > Average)
+                            if (student.AverageMain() > Average)
                             {
-                                Average = Students[j].AverageMain();
-                                Name = Students[j].FullName();
-                                Student = Students[j];
+                                Average = student.AverageMain();
+                                Name = student.FullName();
+                                Student = student;
                             }
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        int Index = Array.IndexOf(Students, Student);
-                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-                       
+                        Students.Remove(Student);                       
                         Average = 0;
                     }
                 }
@@ -198,20 +192,18 @@ namespace StudentsReportCard_OOPAndFilling_2
                 {
                     for (int i = 0; i < Number; i++)
                     {
-                        for (int j = 0; j < Students.Length; j++)
+                        foreach (Student student in Students)
                         {
-
-                            if (Students[j].AverageGeneral() > Average)
+                            if (student.AverageGeneral() > Average)
                             {
-                                Average = Students[j].AverageGeneral();
-                                Name = Students[j].FullName();
-                                Grade = Students[j].Rank(Students[j].AverageGeneral());
-                                Student = Students[j];
+                                Average = student.AverageGeneral();
+                                Name = student.FullName();
+                                Grade = student.Rank(Average);
+                                Student = student;
                             }
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average},  Grade: {Grade}");
-                        int Index = Array.IndexOf(Students, Student);
-                        Students[Index] = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                        Students.Remove(Student);
                         Average = 0;
                     }
                 }
