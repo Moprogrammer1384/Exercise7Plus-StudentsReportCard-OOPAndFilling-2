@@ -20,23 +20,87 @@ void GenerateStudent()
         {
             string[] Values = Reader.ReadLine().Replace(" ", "").Split(new char[] { ',' });
 
-            Student Student = new Student(Values[0],
-                                          Values[1],
-                                          Int32.Parse(Values[2]),
-                                          Int32.Parse(Values[3]),
-                                          Int32.Parse(Values[4]),
-                                          Int32.Parse(Values[5]),
-                                          Int32.Parse(Values[6]),
-                                          Int32.Parse(Values[7]),
-                                          Int32.Parse(Values[8]),
-                                          Int32.Parse(Values[9]),
-                                          Int32.Parse(Values[10]),
-                                          Int32.Parse(Values[11]));
+            Student Student = new Student(
+            Values[0], 
+            Values[1], 
+            new List<Lesson>()
+            {
+                new Lesson()
+                {
+                    ID = 1,
+                    Name = "AdvancedProgramming",
+                    Mark = Int32.Parse(Values[2]),
+                    Unit = 3
+                },
+                new Lesson()
+                {
+                    ID = 2,
+                    Name = "AdvancedProgramming2",
+                    Mark = Int32.Parse(Values[3]),
+                    Unit = 3
+                },
+                new Lesson()
+                {
+                    ID = 3,
+                    Name = "OOP",
+                    Mark = Int32.Parse(Values[4]),
+                    Unit = 3
+                },
+                new Lesson()
+                {
+                    ID = 4,
+                    Name = "OS",
+                    Mark = Int32.Parse(Values[5]),
+                    Unit = 3
+                },
+                new Lesson()
+                {
+                    ID = 5,
+                    Name = "Algorithm",
+                    Mark = Int32.Parse(Values[6]),
+                    Unit = 3
+                },
+                new Lesson()
+                {
+                    ID = 6,
+                    Name = "Mathematic",
+                    Mark = Int32.Parse(Values[7]),
+                    Unit = 2
+                },
+                new Lesson()
+                {
+                    ID = 7,
+                    Name = "English",
+                    Mark = Int32.Parse(Values[8]),
+                    Unit = 2
+                },
+                new Lesson()
+                {
+                    ID = 8,
+                    Name = "WorkShop",
+                    Mark = Int32.Parse(Values[9]),
+                    Unit = 1
+                },
+                new Lesson()
+                {
+                    ID = 9,
+                    Name = "Quran",
+                    Mark = Int32.Parse(Values[10]),
+                    Unit = 1
+                },
+                new Lesson()
+                {
+                    ID = 10,
+                    Name = "PE",
+                    Mark = Int32.Parse(Values[11]),
+                    Unit = 1
+                },
+            });
             Students.Add(Student);
 
         }
     }
-        
+
 }
 
 void Welcome()
@@ -68,6 +132,7 @@ void SelectOption()
         Console.Write("Please choose one of the options: ");
         Students = new List<Student>();
         GenerateStudent();
+
         Sort = new Sort(Students);
         switch (Console.ReadLine())
         {
@@ -138,7 +203,7 @@ void PrintAverage(string Type)
                 Console.WriteLine($"{Student.FullName()} : {Student.AverageGeneral()}");
                 break;
         }
-    }    
+    }
 }
 
 void ShowPrimeNumbers()
