@@ -1,4 +1,4 @@
-﻿//***********************************
+//***********************************
 // Student Name : Mohammad Ali Amirkhani
 // Lesson Name : Advanced Programming (1)
 // Practice Number : 7(OOPAndFilling2)
@@ -7,7 +7,7 @@
 using StudentsReportCard_OOPAndFilling_2;
 using System.IO;
 
-Student[] Students;
+List<Student> Students = new List<Student>();
 Sort Sort;
 string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data", "StudentsData.txt");
 
@@ -16,7 +16,7 @@ void GenerateStudent()
 {
     using (StreamReader Reader = new StreamReader(path))
     {
-        for (int i = 0; i < Students.Length; i++)
+        for (int i = 0; i < 100; i++)
         {
             string[] Values = Reader.ReadLine().Replace(" ", "").Split(new char[] { ',' });
 
@@ -32,7 +32,7 @@ void GenerateStudent()
                                           Int32.Parse(Values[9]),
                                           Int32.Parse(Values[10]),
                                           Int32.Parse(Values[11]));
-            Students[i] = Student;
+            Students.Add(Student);
 
         }
     }
@@ -66,7 +66,7 @@ void SelectOption()
     {
         Welcome();
         Console.Write("Please choose one of the options: ");
-        Students = new Student[100];
+        
         GenerateStudent();
         Sort = new Sort(Students);
         switch (Console.ReadLine())
@@ -118,35 +118,35 @@ void SelectOption()
 void PrintAverage(string Type)
 {
     Console.WriteLine($"***{Type}s***");
-    for (int i = 0; i < Students.Length; i++)
+    foreach (Student Student in Students)
     {
         switch (Type)
         {
             case "WrittenAverage":
-                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageWritten()}");
+                Console.WriteLine($"{Student.FullName()} : {Student.AverageWritten()}");
                 break;
             case "PracticalAverage":
-                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AveragePractical()}");
+                Console.WriteLine($"{Student.FullName()} : {Student.AveragePractical()}");
                 break;
             case "TheoricalAverage":
-                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageTheorical()}");
+                Console.WriteLine($"{Student.FullName()} : {Student.AverageTheorical()}");
                 break;
             case "MainAverage":
-                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageMain()}");
+                Console.WriteLine($"{Student.FullName()} : {Student.AverageMain()}");
                 break;
             case "GeneralAverage":
-                Console.WriteLine($"{Students[i].FullName()} : {Students[i].AverageGeneral()}");
+                Console.WriteLine($"{Student.FullName()} : {Student.AverageGeneral()}");
                 break;
         }
-    }
+    }    
 }
 
 void ShowPrimeNumbers()
 {
     Console.WriteLine("***Prime numbers for all student***");
-    for (int i = 0; i < Students.Length; i++)
+    foreach (Student Student in Students)
     {
-        Students[i].PrimeNumbers();
+        Student.PrimeNumbers();
         Console.WriteLine("--------------------------------------");
         Console.WriteLine("--------------------------------------");
     }
