@@ -2,106 +2,81 @@
 {
     public class Student
     {
-        public Student(string FirstName,
-                       string LastName,
-                       int AdvancedProgramming,
-                       int AdvancedProgramming2,
-                       int Mathematic,
-                       int Quran,
-                       int WorkShop,
-                       int English,
-                       int OOP,
-                       int PE,
-                       int OS,
-                       int Algorithm)
-        {
-
+        public Student(string FirstName, string LastName, List<Lesson> Lessons)
+        { 
             this.FirstName = FirstName;
             this.LastName = LastName;
-            this.AdvancedProgramming = AdvancedProgramming;
-            this.AdvancedProgramming2 = AdvancedProgramming2;
-            this.Mathematic = Mathematic;
-            this.OOP = OOP;
-            this.PE = PE;
-            this.OS = OS;
-            this.English = English;
-            this.Algorithm = Algorithm;
-            this.Quran = Quran;
-            this.WorkShop = WorkShop;
+            this.Lessons = Lessons;
         }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int AdvancedProgramming { get; set; }
-        public int AdvancedProgramming2 { get; set; }
-        public int Mathematic { get; set; }
-        public int Quran { get; set; }
-        public int WorkShop { get; set; }
-        public int English { get; set; }
-        public int OOP { get; set; }
-        public int PE { get; set; }
-        public int OS { get; set; }
-        public int Algorithm { get; set; }
+        public List<Lesson> Lessons{ get; set; }
+
 
         public string FullName()
         {
             return $"{FirstName} {LastName}";
         }
-            
+
         public double AverageWritten()
         {
-            int TotalMarks = Quran +
-                             (Mathematic * 2) +
-                             WorkShop +
-                             (English * 2) +
-                             PE;
+            int TotalMarks = (Lessons[8].Mark * Lessons[8].Unit) +
+                             (Lessons[5].Mark * Lessons[5].Unit) +
+                             (Lessons[7].Mark * Lessons[7].Unit) +
+                             (Lessons[6].Mark * Lessons[6].Unit) +
+                             (Lessons[9].Mark * Lessons[9].Unit);
 
-            return Math.Round((double)TotalMarks / (double)7, 2);
+            int TotalUnits = Lessons[8].Unit + Lessons[5].Unit + Lessons[7].Unit + Lessons[6].Unit + Lessons[9].Unit;
+
+            return Math.Round((double)TotalMarks / (double)TotalUnits, 2);
         }
 
         public double AveragePractical()
         {
-            int TotalMarks = (AdvancedProgramming * 3) +
-                             (AdvancedProgramming2 * 3) +
-                             (OOP * 3);
+            int TotalMarks = (Lessons[0].Mark * Lessons[0].Unit) +
+                             (Lessons[1].Mark * Lessons[1].Unit) +
+                             (Lessons[2].Mark * Lessons[2].Unit);
 
-            return Math.Round((double)TotalMarks / (double)9, 2);
+            int TotalUnits = Lessons[0].Unit + Lessons[1].Unit + Lessons[2].Unit;
+
+            return Math.Round((double)TotalMarks / (double)TotalUnits, 2);
         }
 
         public double AverageTheorical()
         {
-            int TotalMarks = (OS * 3) +
-                             (Algorithm * 3);
-                             
-                                                          
-            return Math.Round((double)TotalMarks / (double)6, 2);
+            int TotalMarks = (Lessons[3].Mark * Lessons[3].Unit) +
+                             (Lessons[4].Mark * Lessons[4].Unit);
+
+            int TotalUnits = Lessons[3].Unit + Lessons[4].Unit;
+
+            return Math.Round((double)TotalMarks / (double)TotalUnits, 2);
         }
 
         public double AverageMain()
         {
-            int TotalMarks = (OS * 3) +
-                             (Algorithm * 3) +
-                             (AdvancedProgramming * 3) +
-                             (AdvancedProgramming2 * 3) +
-                             (OOP * 3);
+            int TotalMarks = (Lessons[3].Mark * Lessons[3].Unit) +
+                             (Lessons[4].Mark * Lessons[4].Unit) +
+                             (Lessons[0].Mark * Lessons[0].Unit) +
+                             (Lessons[1].Mark * Lessons[1].Unit) +
+                             (Lessons[2].Mark * Lessons[2].Unit);
 
-            return Math.Round((double)TotalMarks / (double)15, 2);
+            int TotalUnits = Lessons[3].Unit + Lessons[4].Unit + Lessons[0].Unit + Lessons[1].Unit + Lessons[2].Unit;
+
+            return Math.Round((double)TotalMarks / (double)TotalUnits, 2);
         }
 
         public double AverageGeneral()
         {
-            int TotalMarks = (AdvancedProgramming * 3) +
-                             (AdvancedProgramming2 * 3) +
-                             Quran +
-                             (Mathematic * 2) +
-                             WorkShop +
-                             (English * 2) +
-                             (OOP * 3) +
-                             PE +
-                             OS * 3 +
-                             (Algorithm * 3);
+            int TotalMarks = 0;
+            int TotalUnits = 0;
+            foreach (Lesson Lesson in Lessons)
+            {
+                TotalMarks += Lesson.Mark * Lesson.Unit;
+                TotalUnits += Lesson.Unit;
+            }
 
-            return Math.Round((double)TotalMarks / (double)22, 2);
+            return Math.Round((double)TotalMarks / (double)TotalUnits, 2);
         }
 
         public char Rank(double Average)
@@ -139,26 +114,25 @@
 
         public void PrimeNumbers()
         {
-            int[] Lessons = { AdvancedProgramming, AdvancedProgramming2, Mathematic, Quran, WorkShop, English, OOP, PE, OS, Algorithm };
-            string[] LessonsName = { "AdvancedProgramming", "AdvancedProgramming2", "Mathematic", "Quran", "WorkShop", "English", "OOP", "PE", "OS", "Algorithm" };
-            bool Prime = true;
             Console.WriteLine($"********{FullName()}********");
-            for (int i = 0; i < Lessons.Length; i++)
+            bool Prime;
+            foreach (Lesson Lesson in Lessons)
             {
-                if (Lessons[i] <= 1)
+                Prime = true;
+                if (Lesson.Mark <= 1)
                     Prime = false;
-                if (Lessons[i] == 2)
+                if (Lesson.Mark == 2)
                     Prime = true;
-                for (int j = 2; j < Lessons[i]; j++)
+                for (int j = 2; j < Lesson.Mark; j++)
                 {
-                    if (Lessons[i] % j == 0)
+                    if (Lesson.Mark % j == 0)
                     {
                         Prime = false;
                         break;
                     }
                 }
                 if (Prime)
-                    Console.WriteLine($"{LessonsName[i]} : {Lessons[i]}");
+                    Console.WriteLine($"{Lesson.Name} : {Lesson.Mark}");
             }
         }
     }
