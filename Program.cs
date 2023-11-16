@@ -7,7 +7,7 @@
 using StudentsReportCard_OOPAndFilling_2;
 using System.IO;
 
-List<Student> Students = new List<Student>();
+List<Student> Students;
 Sort Sort;
 string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data", "StudentsData.txt");
 
@@ -66,7 +66,7 @@ void SelectOption()
     {
         Welcome();
         Console.Write("Please choose one of the options: ");
-        
+        Students = new List<Student>();
         GenerateStudent();
         Sort = new Sort(Students);
         switch (Console.ReadLine())
