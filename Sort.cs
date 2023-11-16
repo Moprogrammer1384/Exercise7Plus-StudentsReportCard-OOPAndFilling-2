@@ -21,7 +21,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", new List<Lesson>());
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -38,9 +38,9 @@ namespace StudentsReportCard_OOPAndFilling_2
                                 Name = student.FullName();
                                 Student = student;
                             }
-                        }                      
+                        }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        Students.Remove(Student);                                              
+                        Students.Remove(Student);
                         Average = 0;
                     }
                 }
@@ -57,7 +57,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", new List<Lesson>());
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -93,7 +93,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", new List<Lesson>());
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -145,7 +145,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             string Name = "";
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
-            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", new List<Lesson>());
 
             if (IsNotNull(Input) && IsInt(Input))
             {
@@ -164,7 +164,7 @@ namespace StudentsReportCard_OOPAndFilling_2
                             }
                         }
                         Console.WriteLine($"{i + 1}.Name:{Name},  Average: {Average}");
-                        Students.Remove(Student);                       
+                        Students.Remove(Student);
                         Average = 0;
                     }
                 }
@@ -180,7 +180,7 @@ namespace StudentsReportCard_OOPAndFilling_2
             double Average = 0;
             string Name = "";
             char Grade = ' ';
-            Student Student = new Student("", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            Student Student = new Student("", "", new List<Lesson>());
             Console.Write("Please enter the number of students that you want to sort: ");
             string Input = Console.ReadLine();
 
